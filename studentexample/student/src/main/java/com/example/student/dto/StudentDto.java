@@ -7,11 +7,15 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class StudentDto {
 
     @JsonProperty(access = Access.READ_ONLY)

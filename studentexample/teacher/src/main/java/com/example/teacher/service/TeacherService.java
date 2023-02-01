@@ -1,17 +1,19 @@
 package com.example.teacher.service;
 
-import com.example.student.dto.StudentDto;
-import com.example.student.exception.StudentException;
-import com.example.student.model.Student;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.example.teacher.dto.StudentDto;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+@FeignClient(url = "http://localhost:8080/api/v1/students", name = "TECHER-SERVICE")
 public interface TeacherService {
 
-    StudentDto getStudentById(long id);
+    @GetMapping
+    List<StudentDto> getAllStudents();
 
-    List<StudentDto> getAllStudent();
+    @GetMapping("/{id}")
+    StudentDto getStudentById(@PathVariable long id);
 
 }

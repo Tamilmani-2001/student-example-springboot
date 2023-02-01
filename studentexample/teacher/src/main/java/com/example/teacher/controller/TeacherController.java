@@ -1,9 +1,7 @@
 package com.example.teacher.controller;
 
-import com.example.student.constants.Constants;
-import com.example.student.dto.StudentDto;
-import com.example.student.exception.StudentException;
 import com.example.teacher.service.TeacherService;
+import com.example.teacher.dto.StudentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,28 +15,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/teachers")
 public class TeacherController {
-
-    private TeacherService teacherService;
-
     @Autowired
-    private TeacherController(TeacherService teacherService) {
-        this.teacherService = teacherService;
+    private TeacherService teacherService;
+    @GetMapping("/students")
+    private List<StudentDto> getAllStudents() {
+        return teacherService.getAllStudents();
     }
-
-    @GetMapping(value = "/student/{id}")
-    private ResponseEntity<StudentDto> getStudentById(@PathVariable String id) {
-        long newId = 0;
-        try {
-            newId = Long.parseLong(id);
-        } catch (NumberFormatException errorInId) {
-            throw new StudentException(Constants.INVALID_ID);
-        }
-        return new ResponseEntity<StudentDto>(teacherService.getStudentById(newId), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/students")
-    private ResponseEntity<List<StudentDto>> getAllStudent() {
-        return new ResponseEntity<List<StudentDto>>(teacherService.getAllStudent(), HttpStatus.ACCEPTED);
+    @GetMapping("/students/{id}")
+    private ResponseEntity<StudentDto> getStudentById(@PathVariable long id) {
+        return new ResponseEntity<>(teacherService.getStudentById(id), HttpStatus.OK);
     }
 
 }
