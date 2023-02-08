@@ -1,0 +1,17 @@
+server:
+  port: 8400
+
+spring:
+  appilication:
+    name: api-gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: student-service
+          uri: http://localhost:8000/
+          predicates:
+            - Path=/api/v1/students/**
+        - id: teacher-service
+          uri: http://localhost:9000/
+          predicates:
+            - Path=/api/v1/teachers/**

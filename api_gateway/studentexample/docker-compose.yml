@@ -1,0 +1,34 @@
+services:
+  teacher-service:
+    image: teacher-service
+    build:
+      context: ${PROJECT_PATH}/teacher-service
+      dockerfile: ${PROJECT_PATH}/teacher-service/Dockerfile
+    ports:
+      - "9000:9000"
+    restart: always
+    depends_on:
+      - h2
+    environment:
+      - SPRING_DATASOURCE_URL=${DATABASE_URL}
+      - SPRING_DATASOURCE_USERNAME=${DATABASE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${DATABASE_PASSWORD}
+    volumes:
+      - ${PROJECT_PATH}/log:/log
+
+  student-service:
+    image: student-service
+    build:
+      context: ${PROJECT_PATH}/student-service
+      dockerfile: ${PROJECT_PATH}/student-service/Dockerfile
+    ports:
+      - "8000: 8000"
+    restart: always
+    depends_on:
+      - h2
+    environment:
+      - SPRING_DATASOURCE_URL=${DATABASE_URL}
+      - SPRING_DATASOURCE_USERNAME=${DATABASE_USERNAME}
+      - SPRING_DATASOURCE_PASSWORD=${DATABASE_PASSWORD}
+    volumes:
+      - ${PROJECT_PATH}/log:/log
