@@ -21,5 +21,8 @@ public class Constants {
     public static final String STUDENT_NOT_FOUND = "Student not found.";
     public static final String UPDATE_MSG = "Updated successfully";
     public static final String DELETE_MSG = "Deleted successfully.";
+    //Other messages.
+    public static final String TEACHER_DETAILS_EMPTY_MSG = "teacher details is empty.";
+    public static final String TEACHER_NOT_FOUND = "teacher not found.";
 
 }

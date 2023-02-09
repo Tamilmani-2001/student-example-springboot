@@ -1,9 +1,9 @@
 package com.example.teacher.controller;
 
-import com.example.teacher.constants.Constants;
-import com.example.teacher.dto.StudentDto;
-import com.example.teacher.dto.TeacherDto;
-import com.example.teacher.exception.StudentException;
+import com.example.common.constants.Constants;
+import com.example.common.dto.StudentDto;
+import com.example.common.dto.TeacherDto;
+import com.example.common.exception.StudentException;
 import com.example.teacher.service.TeacherService;
 import com.example.teacher.service.TeacherServiceOr;
 import jakarta.validation.Valid;

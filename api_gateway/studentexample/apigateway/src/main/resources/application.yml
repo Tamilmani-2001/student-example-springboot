@@ -1,17 +1,27 @@
 server:
   port: 8400
 
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8502/eureka
+  instance:
+    hostname: localhost
+
 spring:
-  appilication:
+  application:
     name: api-gateway-service
   cloud:
     gateway:
       routes:
         - id: student-service
-          uri: http://localhost:8000/
+          uri:  lb://student-service
           predicates:
             - Path=/api/v1/students/**
         - id: teacher-service
-          uri: http://localhost:9000/
+          uri:  lb://teacher-service
           predicates:
             - Path=/api/v1/teachers/**

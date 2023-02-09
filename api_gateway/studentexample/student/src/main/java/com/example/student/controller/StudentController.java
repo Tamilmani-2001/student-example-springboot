@@ -1,8 +1,8 @@
 package com.example.student.controller;
 
-import com.example.student.constants.Constants;
-import com.example.student.dto.StudentDto;
-import com.example.student.exception.StudentException;
+import com.example.common.constants.Constants;
+import com.example.common.dto.StudentDto;
+import com.example.common.exception.StudentException;
 import com.example.student.service.StudentService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

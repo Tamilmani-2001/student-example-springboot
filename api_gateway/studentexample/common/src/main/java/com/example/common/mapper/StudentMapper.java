@@ -2,7 +2,9 @@ package com.example.common.mapper;
 
 
 import com.example.common.dto.StudentDto;
+import com.example.common.dto.TeacherDto;
 import com.example.common.model.Student;
+import com.example.common.model.Teacher;
 import org.modelmapper.ModelMapper;
 
 import java.util.List;
@@ -29,4 +31,22 @@ public class StudentMapper {
         return studentDtos.stream().map(studentDto -> toStudent(studentDto)).collect(Collectors.toList());
     }
 
+
+    public static TeacherDto toTeacherDto(Teacher teacher) {
+        return mapper.map(teacher, TeacherDto.class);
+    }
+
+
+    public static Teacher toTeacher(TeacherDto teacherDto) {
+        return mapper.map(teacherDto, Teacher.class);
+    }
+
+
+    public static List<TeacherDto> toTeacherDtos(List<Teacher> Teachers) {
+        return Teachers.stream().map(Teacher -> toTeacherDto(Teacher)).collect(Collectors.toList());
+    }
+
+    public static List<Teacher> toTeachers(List<TeacherDto> TeacherDtos) {
+        return TeacherDtos.stream().map(TeacherDto -> toTeacher(TeacherDto)).collect(Collectors.toList());
+    }
 }

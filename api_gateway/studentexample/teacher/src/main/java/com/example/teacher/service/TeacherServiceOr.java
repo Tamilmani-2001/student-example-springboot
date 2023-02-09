@@ -1,8 +1,7 @@
 package com.example.teacher.service;
 
-import com.example.teacher.dto.TeacherDto;
-import com.example.teacher.model.Teacher;
-import org.springframework.stereotype.Service;
+import com.example.common.dto.TeacherDto;
+import com.example.common.model.Teacher;
 
 import java.util.List;
 

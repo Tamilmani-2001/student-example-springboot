@@ -1,10 +1,10 @@
 package com.example.teacher.service.impl;
 
-import com.example.teacher.constants.Constants;
-import com.example.teacher.dto.TeacherDto;
-import com.example.teacher.exception.StudentException;
-import com.example.teacher.mapper.TeacherMapper;
-import com.example.teacher.model.Teacher;
+import com.example.common.constants.Constants;
+import com.example.common.dto.TeacherDto;
+import com.example.common.exception.StudentException;
+import com.example.common.mapper.StudentMapper;
+import com.example.common.model.Teacher;
 import com.example.teacher.repository.TeacherRepository;
 import com.example.teacher.service.TeacherServiceOr;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class TeacherServiceOrImpl implements TeacherServiceOr {
 
     @Override
     public TeacherDto getTeacherById(long id) {
-        return TeacherMapper.toTeacherDto(findById(id));
+        return StudentMapper.toTeacherDto(findById(id));
     }
 
     @Override
@@ -42,18 +42,18 @@ public class TeacherServiceOrImpl implements TeacherServiceOr {
         if (teacherRepository.findByRollNo(teacherDto.getRollNo()).isPresent()) {
             throw new StudentException(Constants.ROLLNO_ALREADY_PRESENT_MSG);
         }
-        teacher = TeacherMapper.toTeacher(teacherDto);
+        teacher = StudentMapper.toTeacher(teacherDto);
         teacher.setCreatedBy(teacherDto.getRefId());
         teacher.setCreatedAt(LocalDateTime.now());
         teacher.setUpdatedBy(teacherDto.getRefId());
         teacher.setUpdateAt(teacher.getCreatedAt());
-        return TeacherMapper.toTeacherDto(teacherRepository.save(teacher));
+        return StudentMapper.toTeacherDto(teacherRepository.save(teacher));
     }
 
     @Override
     public List<TeacherDto> getAllTeacher() {
         List<Teacher> teachers = teacherRepository.findAll();
-        return TeacherMapper.toTeacherDtos(teachers);
+        return StudentMapper.toTeacherDtos(teachers);
     }
 
 }

@@ -1,10 +1,7 @@
 package com.example.student.service;
 
-import com.example.student.dto.StudentDto;
-import com.example.student.exception.StudentException;
-import com.example.student.model.Student;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.example.common.dto.StudentDto;
+import com.example.common.model.Student;
 
 import java.util.List;
 

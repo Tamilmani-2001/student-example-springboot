@@ -1,6 +1,6 @@
 package com.example.teacher.repository;
 
-import com.example.teacher.model.Teacher;
+import com.example.common.model.Teacher;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

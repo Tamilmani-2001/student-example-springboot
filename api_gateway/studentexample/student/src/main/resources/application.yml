@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: student-service
+  main:
+    web-application-type: reactive
+
+server:
+  port: 8000
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8502/eureka
+  instance:
+    hostname: localhost

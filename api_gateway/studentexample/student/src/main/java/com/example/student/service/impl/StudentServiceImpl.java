@@ -1,10 +1,10 @@
 package com.example.student.service.impl;
 
-import com.example.student.constants.Constants;
-import com.example.student.dto.StudentDto;
-import com.example.student.exception.StudentException;
-import com.example.student.mapper.StudentMapper;
-import com.example.student.model.Student;
+import com.example.common.constants.Constants;
+import com.example.common.dto.StudentDto;
+import com.example.common.exception.StudentException;
+import com.example.common.mapper.StudentMapper;
+import com.example.common.model.Student;
 import com.example.student.repository.StudentRepository;
 import com.example.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
